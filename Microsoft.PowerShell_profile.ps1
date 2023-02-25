@@ -1,10 +1,11 @@
 # Aliases
 
 # Refresh this file in the current PowerShell terminal
-function refreshProfile
-{
-	. $PROFILE
-}
+function refreshProfile { & $PROFILE }
+
+function ll { Get-ChildItem }
+
+function df { Get-Volume }
 
 # Import the Chocolatey Profile that contains the necessary code to enable
 # tab-completions to function for `choco`.
@@ -17,7 +18,7 @@ if (Test-Path($ChocolateyProfile)) {
 }
 
 # oh-my-posh prompt
-oh-my-posh init pwsh --config "C:\Users\$env:USERNAME\AppData\Local\Programs\oh-my-posh\themes\lambdageneration.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "$HOME\AppData\Local\Programs\oh-my-posh\themes\lambdageneration.omp.json" | Invoke-Expression
 
 # Terminal icons (Need to be installed beforehand)
 Import-Module -Name Terminal-Icons
