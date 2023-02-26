@@ -6,6 +6,7 @@ My personal PowerShell profile.
 
 ## Install instructions
 
+- You will need to [install a NerdFont](https://www.nerdfonts.com/font-downloads) beforehand or you'll just see "?" symbols
 - Clone the project `git clone https://github.com/Zayoxy/powershell-profile.git`
 - Launch Windows PowerShell or PowerShell core as an **ADMINISTRATOR**
 - Launch `.\setup.ps1`, it will create a symlink to the profile
