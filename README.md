@@ -1,6 +1,16 @@
 # PowerShell profile
 
-First thing to know is that there are two PowerShell profile in Windows.
+My personal PowerShell profile.
 
-- The normal one located in `C:\Users\$env:USERNAME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1` witch is used with the default Windows PowerShell.
-- And the other one located in `C:\Users\$env:USERNAME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1` witch is used with the new PowerShell
+![PowerShell-img](https://upload.wikimedia.org/wikipedia/commons/a/af/PowerShell_Core_6.0_icon.png)
+
+## Install instructions
+
+- Clone the project `git clone https://github.com/Zayoxy/powershell-profile.git`
+- Launch Windows PowerShell or PowerShell core as an **ADMINISTRATOR**
+- Launch `.\setup.ps1`, it will create a symlink to the profile
+
+## About
+
+- [@Zayoxy](https://github.com/Zayoxy/powershell-profile)'s PowerShell profile
+- Inspired by [@ChrisTitusTech](https://github.com/ChrisTitusTech/powershell-profile)
