@@ -10,7 +10,8 @@ try
     if(Test-Path -Path $PROFILE)
     {
         Write-Verbose "$PROFILE found"
-        Move-Item -Path $PROFILE -Destination "$($PROFILE).old"
+        if((Read-Host "$PROFILE.old already exists, if you continue it will overwrite it. Continue ? [y] or [Y]") -ne "y") { exit }
+        Move-Item -Path $PROFILE -Destination "$($PROFILE).old" -Force
         Write-Verbose "Moved $PROFILE to $($PROFILE).old"
     }
     else
