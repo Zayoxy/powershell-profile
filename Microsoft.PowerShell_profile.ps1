@@ -18,7 +18,7 @@ if (Test-Path($ChocolateyProfile)) {
 }
 
 # oh-my-posh prompt
-oh-my-posh init pwsh --config "$HOME\AppData\Local\Programs\oh-my-posh\themes\lambdageneration.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\multiverse-neon.omp.json" | Invoke-Expression
 
 # Terminal icons (Need to be installed beforehand)
 Import-Module -Name Terminal-Icons
