@@ -3,48 +3,39 @@ $profileFile = "Microsoft.PowerShell_profile.ps1"
 Clear-Host
 
 # Handling Profile creation
-try
-{
+try {
     # If a Profile already exists, rename it to $PROFILE.old
     Write-Verbose "Testing if $PROFILE exists"
-    if(Test-Path -Path $PROFILE)
-    {
+    if (Test-Path -Path $PROFILE) {
         Write-Verbose "$PROFILE found"
-        if((Read-Host "$PROFILE.old already exists, if you continue it will overwrite it. Continue ? [y] or [Y]") -ne "y") { exit }
+        if ((Read-Host "$PROFILE.old already exists, if you continue it will overwrite it. Continue ? [y] or [Y]") -ne "y") { exit }
         Move-Item -Path $PROFILE -Destination "$($PROFILE).old" -Force
         Write-Verbose "Moved $PROFILE to $($PROFILE).old"
     }
-    else
-    {
+    else {
         Write-Verbose "$PROFILE not found"
     }
 
     # Windows PowerShell or PowerShell core
-    switch ($PSVersionTable.PSEdition)
-    {
-        "Core"
-        { 
+    switch ($PSVersionTable.PSEdition) {
+        "Core" { 
             Write-Verbose "PowerShell core version"
             $profilePath = "PowerShell"
         }
-        "Desktop"
-        {
+        "Desktop" {
             Write-Verbose "Windows Powershell version"
             $profilePath = "WindowsPowerShell"
         }
-        Default
-        {
+        Default {
             Write-Host "Not on windows" -ForegroundColor Red
             $profilePath = $null
         }
     }
     
     # Creating a symlink to the new Profile if the path is not empty
-    if ($null -ne $profilePath)
-    {   
+    if ($null -ne $profilePath) {   
         # Checking if it's the VSCode Powershell extension profile
-        if ($PROFILE.Contains("VSCode"))
-        {
+        if ($PROFILE.Contains("VSCode")) {
             $profileFile = "Microsoft.VSCode_profile.ps1"
         }
         
@@ -52,13 +43,11 @@ try
         Write-Verbose "Created symlink at $PROFILE"
     }  
 }
-catch
-{
+catch {
     Write-Host $_.Exception.Message -ForegroundColor Red
 }
 
-try
-{
+try {
     # Installing OhMyPosh for the prompt style
     winget install -e -s winget --id JanDeDobbeleer.OhMyPosh
     Write-Verbose "Installed OhMyPosh"
@@ -72,4 +61,4 @@ catch {
 }
 
 # Refresh the Profile
-& $PROFILE
+. $PROFILE
