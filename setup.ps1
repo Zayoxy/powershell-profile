@@ -48,9 +48,9 @@ catch {
 }
 
 try {
-    # Installing OhMyPosh for the prompt style
-    winget install -e -s winget --id JanDeDobbeleer.OhMyPosh
-    Write-Verbose "Installed OhMyPosh"
+    # Installing Starship
+    winget install -e --id Starship.Starship
+    Write-Verbose "Installed Starship"
 
     # Installing Terminal Icons
     Install-Module -Name Terminal-Icons -Repository PSGallery

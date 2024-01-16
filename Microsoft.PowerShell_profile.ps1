@@ -17,8 +17,10 @@ if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 
-# oh-my-posh prompt
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\multiverse-neon.omp.json" | Invoke-Expression
+# Starship prompt
+Invoke-Expression (&starship init powershell)
 
 # Terminal icons (Need to be installed beforehand)
 Import-Module -Name Terminal-Icons
+Import-Module -Name gsudoModule
+
